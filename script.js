@@ -2,33 +2,18 @@ var playerScore = 0, computerScore = 0, roundNumber = 0
 
 function playRound(playerSelection, computerSelection) {
     // your code here!
-    if (playerSelection === 'rock' && computerSelection === 'scissors'){
+    if ((playerSelection === 'rock' && computerSelection === 'scissors') ||
+        (playerSelection === 'scissors' && computerSelection === 'paper') ||
+        (playerSelection === 'paper' && computerSelection === 'rock')){
         playerScore++;
-        return "You Win! rock beats scissors";
-    } else if (playerSelection === 'rock' && computerSelection ==='rock'){
-        return "Draw!";
-    
-    } else if (playerSelection === 'rock' && computerSelection ==='paper'){
+        return `You Win! ${playerSelection} beats ${computerSelection}`;
+    } else if ((computerSelection === 'rock' && playerSelection === 'scissors') ||
+    (computerSelection === 'scissors' && playerSelection === 'paper') ||
+    (computerSelection === 'paper' && playerSelection === 'rock')) {
         computerScore++;
-        return "You Lose! paper beats rock";
-    } else if (playerSelection === 'scissors' && computerSelection ==='paper'){
-        playerScore++;
-        return "You Win! scissors beats paper";
-    } else if (playerSelection === 'scissors' && computerSelection ==='rock'){
-        computerScore++;
-        return "You Lose! rock beats scissors";
-    } else if (playerSelection === 'scissors' && computerSelection ==='scissors'){
+        return `You lose! ${computerSelection} beats ${playerSelection}`;
+    } else if (playerSelection === computerSelection){
         return "Draw!";
-    
-    } else if (playerSelection === 'paper' && computerSelection ==='paper'){
-        return "Draw!";
-    
-    } else if (playerSelection === 'paper' && computerSelection ==='rock'){
-        playerScore++;
-        return "You Win! paper beats rock";
-    } else if (playerSelection === 'paper' && computerSelection ==='scissors'){
-        computerScore++;
-        return "You Lose! scissors beats paper";
     } else {
         console.log("Try again!");
     }
