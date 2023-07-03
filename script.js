@@ -1,5 +1,11 @@
 var playerScore = 0, computerScore = 0, roundNumber = 0
 
+let computerSelection;
+let playerSelection;
+
+
+let buttons = document.querySelectorAll(".button");
+
 function playRound(playerSelection, computerSelection) {
     // your code here!
     if ((playerSelection === 'rock' && computerSelection === 'scissors') ||
@@ -19,29 +25,32 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-
-
-
-for (let i = 0; i < 3; i++) {
-    roundNumber++;
-    const playerSelection = prompt("Select: rock, paper or scissors.");
-    console.log("Player: " + playerSelection)
-    const computerSelection = getComputerChoice();
-    console.log("Computer: " + computerSelection) 
-
-    console.log(playRound(playerSelection, computerSelection));
-
-
-    console.log("Round number: " + roundNumber);
-}
-
-
-
 function getComputerChoice () {
     var choice = ["rock", "paper", "scissors"]
 
     return choice[Math.floor(Math.random() * choice.length)];
 }
 
-console.log("Your score was " + playerScore);
-console.log("Computer score was " + computerScore)
+
+buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+        playerSelection = button.firstChild.parentNode.textContent.toLowerCase();
+        roundNumber++;
+        console.log("Player: " + playerSelection)
+        const computerSelection = getComputerChoice();
+        console.log("Computer: " + computerSelection) 
+
+        console.log(playRound(playerSelection, computerSelection));
+
+        console.log("Round number: " + roundNumber);
+        
+        console.log("Your score is " + playerScore);
+        console.log("Computer score is " + computerScore)
+    });
+});
+
+
+
+
+
+
