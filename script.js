@@ -34,7 +34,7 @@ function getComputerChoice () {
 
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
-        playerSelection = button.firstChild.parentNode.textContent.toLowerCase();
+        playerSelection = button.textContent.toLowerCase();
         roundNumber++;
         console.log("Player: " + playerSelection)
         const computerSelection = getComputerChoice();
