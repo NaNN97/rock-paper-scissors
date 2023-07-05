@@ -42,12 +42,8 @@ buttons.forEach((button) => {
     button.addEventListener("click", () => {
         playerSelection = button.textContent.toLowerCase();
         roundNumber++;
-
-        console.log("Player: " + playerSelection)
         const computerSelection = getComputerChoice();
-        console.log("Computer: " + computerSelection) 
 
-        console.log(playRound(playerSelection, computerSelection));
 
         roundNo.innerHTML = "Round: " + roundNumber;
         playerLbl.innerHTML = "Player: " + playerSelection;
