@@ -6,6 +6,12 @@ let playerSelection;
 
 let buttons = document.querySelectorAll(".button");
 
+let roundNo = document.querySelector("#roundNo");
+let playerLbl = document.querySelector("#playerLbl");
+let computerLbl = document.querySelector("#computerLbl");
+let winLbl = document.querySelector("#winLbl");
+let scoreLbl = document.querySelector("#scoreLbl");
+
 function playRound(playerSelection, computerSelection) {
     // your code here!
     if ((playerSelection === 'rock' && computerSelection === 'scissors') ||
@@ -22,7 +28,7 @@ function playRound(playerSelection, computerSelection) {
         return "Draw!";
     } else {
         console.log("Try again!");
-    }
+    }   
 }
 
 function getComputerChoice () {
@@ -36,11 +42,18 @@ buttons.forEach((button) => {
     button.addEventListener("click", () => {
         playerSelection = button.textContent.toLowerCase();
         roundNumber++;
+
         console.log("Player: " + playerSelection)
         const computerSelection = getComputerChoice();
         console.log("Computer: " + computerSelection) 
 
         console.log(playRound(playerSelection, computerSelection));
+
+        roundNo.innerHTML = "Round: " + roundNumber;
+        playerLbl.innerHTML = "Player: " + playerSelection;
+        computerLbl.innerHTML = "Computer: " + computerSelection;
+        winLbl.innerHTML = playRound(playerSelection, computerSelection);
+        scoreLbl.innerHTML = "Player: " + playerScore + " || Computer: " + computerScore;
 
         console.log("Round number: " + roundNumber);
         
